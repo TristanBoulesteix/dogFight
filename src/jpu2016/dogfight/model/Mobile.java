@@ -1,61 +1,51 @@
-package jpu2016.dogfight.model;
+package dogfight.model;
 
 import java.awt.Color;
-import java.awt.Image;
+import java.awt.Dimension;
 
-public class Mobile implements IMobile {
+public class Mobile {
 	private int speed;
 
 	public Mobile(Direction direction, Position position, Dimension dimension, int speed, String image) {
 		this.speed = speed;
 	}
 
-	@Override
 	public Direction getDirection() {
 		return direction;
 	}
 
-	@Override
 	public void setDirection(Direction direction) {
 
 	}
 
-	@Override
 	public Point getPosition() {
 
 	}
 
-	@Override
 	public Dimension getDimension() {
 
 	}
 
-	@Override
 	public int getSpeed() {
 
 	}
 
-	@Override
 	public int getWidth() {
 
 	}
 
-	@Override
 	public int getHeight() {
 
 	}
 
-	@Override
 	public void move() {
 
 	}
 
-	@Override
 	public void placeInArea(IArea area) {
 
 	}
 
-	@Override
 	public boolean isPlayer(int player) {
 
 	}
