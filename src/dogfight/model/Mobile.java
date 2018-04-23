@@ -1,4 +1,4 @@
-package dogfight.mogel;
+package dogfight.model;
 
 import java.awt.Color;
 import java.awt.Dimension;
