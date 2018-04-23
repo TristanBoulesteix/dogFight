@@ -70,4 +70,32 @@ public class Mobile {
 
 	}
 
+	@Override
+	public IDogfightModel getDogfightModel() {
+
+	}
+
+	@Override
+	public void setDogfightModel(IDogfightModel dogfightModel) {
+
+	}
+
+	@Override
+	public boolean hit() {
+
+	}
+
+	@Override
+	public boolean isWeapon() {
+
+	}
+
+	@Override
+	public Image getImage() {
+
+	}
+
+	public void setDogfightModel(DogfightModel dogfightModel) {
+
+	}
 }
