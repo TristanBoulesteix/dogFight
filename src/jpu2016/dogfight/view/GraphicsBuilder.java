@@ -2,7 +2,9 @@ package dogfight.view;
 
 
 public class GraphicsBuilder {
-
+	private int GlobalWidth;
+	private int GlobalHeight;
+	
 	public GraphicsBuilder(IDogfightModel dogfightModel) {
 		
 	}
