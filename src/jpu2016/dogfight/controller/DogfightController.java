@@ -8,7 +8,7 @@ public class DogfightController {
 	static private int TIME_SLEEP = 30;
 	public IDogfightModel dogfightModel;
 	
-	public DogfightController (IDogfightModel dogfightModel) {
+	public DogfightController (dogfightModel IDogfightModel) {
 		
 		this.dogfightModel = dogfightModel;
 	}
