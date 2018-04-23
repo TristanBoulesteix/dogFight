@@ -14,6 +14,6 @@ public class UserOrder {
 	
 	public int getPlayer() {
 		return player;
-		//tristan malin
+		
 	}
 }
