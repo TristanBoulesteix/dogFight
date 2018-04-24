@@ -9,21 +9,33 @@ public class Missile extends Mobile {
 
 	private int distanceTraveled = 0;
 
-	public Missile(Direction direction, Dimension dimension, int speed) {
-		super(direction, position, dimension, speed, IMAGE);
+	public Missile(Direction direction, Position position) {
+		super(direction, position, new Dimension(WIDTH, HEIGHT), SPEED, IMAGE);
 	}
 
 	final public int getWidthWithADirection(Direction direction) {
-
+		if (direction.equals(Direction.UP) || direction.equals(Direction.DOWN)) {
+			return WIDTH;
+		} else {
+			return HEIGHT;
+		}
 	}
 
 	final public int getHeightWithADirection(Direction direction) {
-
+		if (direction.equals(Direction.LEFT) || direction.equals(Direction.RIGHT)) {
+			return HEIGHT;
+		} else {
+			return WIDTH;
+		}
 	}
 
 	@Override
 	public void move() {
-		super.move();
+		if (distanceTraveled < MAX_DISTANCE_TRAVELED) {
+			super.move();
+			distanceTraveled++;
+		}
+
 	}
 
 	@Override
