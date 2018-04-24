@@ -1,7 +1,6 @@
 package dogfight.model;
 
 import java.awt.Color;
-import java.awt.Dimension;
 
 public class Mobile {
 	private int speed;
