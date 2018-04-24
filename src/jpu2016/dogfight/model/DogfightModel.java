@@ -14,7 +14,7 @@ public class DogfightModel extends Observable implements IDogfightModel {
 
 	@Override
 	public IArea getArea() {
-		return null;
+		return sky;
 	}
 
 	@Override
