@@ -1,6 +1,7 @@
 package jpu2016.dogfight.gameframe;
 
 import java.awt.event.KeyEvent;
+import java.util.Observable;
 
 import javax.swing.JFrame;
 
