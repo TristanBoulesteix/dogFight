@@ -8,6 +8,7 @@ public class Sky implements IArea {
 
 	public Sky(Dimension dimension) {
 		this.dimension = dimension;
+
 	}
 
 	@Override

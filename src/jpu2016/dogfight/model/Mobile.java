@@ -36,7 +36,7 @@ public class Mobile {
 	}
 
 	public Dimension getDimension() {
-		return new Dimension(1, 1);
+		return dimension;
 	}
 
 	public int getSpeed() {
@@ -44,11 +44,11 @@ public class Mobile {
 	}
 
 	public int getWidth() {
-		return 1;
+		return dimension.getWidth();
 	}
 
 	public int getHeight() {
-		return 1;
+		return dimension.getHeight();
 	}
 
 	public void move() {
