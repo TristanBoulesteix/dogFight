@@ -4,7 +4,7 @@ public class UserOrder {
 	private int player;
 	private Order order;
 	
-	public void UserOreder(int player, Order order ) {
+	public UserOrder(int player, Order order ) {
 		this.player = player;
 		this.order = order;
 	}

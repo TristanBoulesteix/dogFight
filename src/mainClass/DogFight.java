@@ -13,8 +13,6 @@ public class DogFight {
 			dogfightController.setViewSystem(dogfightView);
 			dogfightController.play(); 
 
-		}
-
 	}
 
 }
