@@ -1,11 +1,7 @@
 package jpu2016.dogfight.model;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 
 public class Mobile {
 	private Direction direction;
@@ -14,6 +10,7 @@ public class Mobile {
 	private int speed;
 	private String image;
 	private int height;
+	private IDogfightModel dogfightModel;
 
 	public Mobile(Direction direction, Position position, Dimension dimension, int speed, String image) {
 		this.direction = direction;
@@ -31,8 +28,8 @@ public class Mobile {
 		this.direction = direction;
 	}
 
-	public Point getPosition() {
-		return new Point();
+	public Position getPosition() {
+		return position;
 	}
 
 	public Dimension getDimension() {
@@ -52,7 +49,25 @@ public class Mobile {
 	}
 
 	public void move() {
+		switch (direction) {
+		case UP:
+			this.moveUp();
+			break;
 
+		case DOWN:
+			this.moveDown();
+			break;
+
+		case RIGHT:
+			this.moveRight();
+			break;
+
+		case LEFT:
+			this.moveLeft();
+			break;
+		}
+
+		this.getDogfightModel().setMobilesHaveMoved();
 	}
 
 	public void placeInArea(IArea area) {
@@ -60,23 +75,31 @@ public class Mobile {
 	}
 
 	public boolean isPlayer(int player) {
-		return true;
+		return false;
 	}
 
 	private void moveUp() {
-
+		if (this.getPosition().getY() + 1 != this.getPosition().getMaxY()) {
+			this.getPosition().setY(this.getPosition().getY() + 1);
+		}
 	}
 
 	private void moveRight() {
-
+		if (this.getPosition().getX() + 1 != this.getPosition().getMaxX()) {
+			this.getPosition().setX(this.getPosition().getX() + 1);
+		}
 	}
 
 	private void moveDown() {
-
+		if (this.getPosition().getY() - 1 >= 0) {
+			this.getPosition().setY(this.getPosition().getY() - 1);
+		}
 	}
 
 	private void moveLeft() {
-
+		if (this.getPosition().getX() - 1 >= 0) {
+			this.getPosition().setX(this.getPosition().getX() - 1);
+		}
 	}
 
 	public Color getColor() {
@@ -84,11 +107,11 @@ public class Mobile {
 	}
 
 	public IDogfightModel getDogfightModel() {
-		return new DogfightModel();
+		return dogfightModel;
 	}
 
 	public void setDogfightModel(IDogfightModel dogfightModel) {
-
+		this.dogfightModel = dogfightModel;
 	}
 
 	public boolean hit() {
@@ -100,38 +123,7 @@ public class Mobile {
 	}
 
 	public Image getImage() {
-		return new Image() {
-
-			@Override
-			public int getWidth(ImageObserver observer) {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
-			public ImageProducer getSource() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public Object getProperty(String name, ImageObserver observer) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public int getHeight(ImageObserver observer) {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
-			public Graphics getGraphics() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-		};
+		return null;
 	}
 
 }

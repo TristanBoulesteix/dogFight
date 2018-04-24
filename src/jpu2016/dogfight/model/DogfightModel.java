@@ -52,7 +52,8 @@ public class DogfightModel extends Observable implements IDogfightModel {
 
 	@Override
 	public void setMobilesHaveMoved() {
-
+		this.setChanged();
+		this.notifyObservers(this);
 	}
 
 }
