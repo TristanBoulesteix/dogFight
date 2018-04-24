@@ -11,13 +11,14 @@ public class EventPerformer implements IEventPerformer{
 	
 	public EventPerformer(IOrderPerformer orderPerformer) {
 		this.orderPerformer = orderPerformer;
-		
+
 	}
-	public void eventPerform(KeyEvent keyCode){
-	
+
+	public void eventPerform(KeyEvent keyCode) {
+
 	}
+
 	private UserOrder keyCodeToUserOrder(int keyCode) {
-		
 		return new UserOrder(keyCode, null);
 	}
 }

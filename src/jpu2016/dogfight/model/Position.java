@@ -8,11 +8,17 @@ public class Position {
 	private double maxY;
 
 	public Position(double x, double y, double maxX, double maxY) {
-
+		setX(x);
+		setY(y);
+		setMaxX(maxX);
+		setMaxY(maxY);
 	}
 
 	public Position(Position position) {
-
+		setX(position.getX());
+		setY(position.getY());
+		setMaxX(position.getMaxX());
+		setMaxY(position.getMaxY());
 	}
 
 	public double getX() {
@@ -35,8 +41,16 @@ public class Position {
 		this.maxX = maxX;
 	}
 
+	protected double getMaxX() {
+		return maxX;
+	}
+
 	protected void setMaxY(double maxY) {
 		this.maxY = maxY;
+	}
+
+	protected double getMaxY() {
+		return maxY;
 	}
 
 }
