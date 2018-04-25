@@ -6,6 +6,7 @@ import jpu2016.dogfight.controller.IOrderPerformer;
 import jpu2016.dogfight.gameframe.GameFrame;
 import jpu2016.dogfight.model.IDogfightModel;
 
+@SuppressWarnings("deprecation")
 public class DogfightView implements Runnable, IViewSystem {
 	private EventPerformer eventPerformer;
 	private GraphicsBuilder graphicsBuilder;
@@ -23,10 +24,12 @@ public class DogfightView implements Runnable, IViewSystem {
 
 	}
 
+	@Override
 	public void closeAll() {
 
 	}
 
+	@Override
 	public String displayMessage(String message) {
 		return message;
 	}

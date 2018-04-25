@@ -1,28 +1,28 @@
 package jpu2016.dogfight.gameframe;
 
 import java.awt.Graphics;
+import java.util.Observable;
+import java.util.Observer;
 
-import java.util.*;
 import javax.swing.JPanel;
 
+@SuppressWarnings({ "deprecation", "serial" })
+public class GamePanel extends JPanel implements Observer {
+	private IGraphicsBuilder graphicsBuilder;
 
-
-public class GamePanel extends JPanel implements Observer{
-	private Object graphicsBuilder;
-	
-	public GamePanel(IGraphicsBuilder graphicBuilder) {
+	public GamePanel(IGraphicsBuilder graphicsBuilder) {
 		this.graphicsBuilder = graphicsBuilder;
-		
+
 	}
+
+	@Override
 	public void paintComponent(Graphics graphics) {
-		
+		graphicsBuilder.applyModelToGraphic(graphics, this);
 	}
-	
+
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
+		repaint();
 	}
-	
 
 }

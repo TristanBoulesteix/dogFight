@@ -6,23 +6,34 @@ import java.util.Observable;
 
 import javax.swing.JFrame;
 
-public class GameFrame extends JFrame implements KeyListener{
+@SuppressWarnings({ "serial", "deprecation" })
+public class GameFrame extends JFrame implements KeyListener {
 	private IEventPerformer eventPerformer;
-	private Object GamePanel;
-	
-public GameFrame(String title, IEventPerformer performer, IGraphicsBuilder graphicBuilder, Observable observable) {
-	this.eventPerformer = performer;
-	this.GamePanel = GamePanel;
-}
-public void keyPressed(KeyEvent keyEvent) {
-	
-}
-@Override
-public void keyReleased(KeyEvent e) {
+	private GamePanel gamePanel;
 
-}
-public void keyTyped(KeyEvent keyEvent) {
-	
-}
+	public GameFrame(String title, IEventPerformer performer, IGraphicsBuilder graphicBuilder, Observable observable) {
+		this.setTitle(title);
+		this.setLocationRelativeTo(null);
+		this.eventPerformer = performer;
+		this.gamePanel = new GamePanel(graphicBuilder);
+		this.setContentPane(this.gamePanel);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+
+	@Override
+	public void keyPressed(KeyEvent keyEvent) {
+
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent keyEvent) {
+		eventPerformer.eventPerform(keyEvent);
+	}
 
 }
