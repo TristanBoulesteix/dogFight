@@ -9,7 +9,6 @@ public class Mobile {
 	private Dimension dimension;
 	private int speed;
 	private String image;
-	private int height;
 	private IDogfightModel dogfightModel;
 
 	public Mobile(Direction direction, Position position, Dimension dimension, int speed, String image) {
@@ -112,10 +111,12 @@ public class Mobile {
 
 	public void setDogfightModel(IDogfightModel dogfightModel) {
 		this.dogfightModel = dogfightModel;
+		this.getPosition().setMaxX(this.dogfightModel.getArea().getDimension().getWidth());
+		this.getPosition().setMaxY(this.dogfightModel.getArea().getDimension().getHeight());
 	}
 
 	public boolean hit() {
-		return true;
+		return false;
 	}
 
 	public boolean isWeapon() {
