@@ -16,7 +16,7 @@ public class GraphicsBuilder implements IGraphicsBuilder {
 	private IDogfightModel dogfightModel;
 
 	public GraphicsBuilder(IDogfightModel dogfightModel) {
-		this.emptySky = new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB);
+		buildEmptySky();
 		this.dogfightModel = dogfightModel;
 
 	}
@@ -26,7 +26,7 @@ public class GraphicsBuilder implements IGraphicsBuilder {
 	}
 
 	private void buildEmptySky() {
-
+		this.emptySky = new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB);
 	}
 
 	private void drawMobile(final IMobile mobile, final Graphics graphics, final ImageObserver observer) {
@@ -38,9 +38,9 @@ public class GraphicsBuilder implements IGraphicsBuilder {
 		graphics.drawImage(imageMobile, (int) mobile.getPosition().getX(), (int) mobile.getPosition().getY(), observer);
 
 		final boolean isHorizontalOut = (mobile.getPosition().getX() + mobile.getWidth()) > this.dogfightModel.getArea()
-				.getWidth();
+				.getDimension().getWidth();
 		final boolean isVerticalOut = (mobile.getPosition().getY() + mobile.getHeight()) > this.dogfightModel.getArea()
-				.getHeight();
+				.getDimension().getHeight();
 
 		if (isHorizontalOut) {
 			final BufferedImage imageMobileH = imageMobile.getSubimage(
