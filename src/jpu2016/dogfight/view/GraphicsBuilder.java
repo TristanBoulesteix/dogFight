@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
+import java.util.ArrayList;
 
 import jpu2016.dogfight.gameframe.IGraphicsBuilder;
 import jpu2016.dogfight.model.IDogfightModel;
@@ -22,11 +23,25 @@ public class GraphicsBuilder implements IGraphicsBuilder {
 	}
 
 	public void applyModelToGraphic(Graphics graphics, ImageObserver observer) {
+		ArrayList<IMobile> listOfMobiles = this.dogfightModel.getMobiles();
 
+		for (int i = 0; i < listOfMobiles.size(); i++) {
+			IMobile mobile = listOfMobiles.get(i);
+
+			drawMobile(mobile, graphics, observer);
+		}
 	}
 
 	private void buildEmptySky() {
-		this.emptySky = new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB);
+		this.emptySky = new BufferedImage(dogfightModel.getArea().getDimension().getWidth(),
+				dogfightModel.getArea().getDimension().getHeight(), BufferedImage.TYPE_INT_RGB);
+
+		Graphics g = emptySky.getGraphics();
+
+		// g.drawImage(dogfightModel.getArea().getImage(),
+		// dogfightModel.getArea().getDimension().getWidth(),
+		// dogfightModel.getArea().getDimension().getWidth(), observer);
+
 	}
 
 	private void drawMobile(final IMobile mobile, final Graphics graphics, final ImageObserver observer) {

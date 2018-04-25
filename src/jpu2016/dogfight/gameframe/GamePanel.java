@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 @SuppressWarnings({ "deprecation", "serial" })
 public class GamePanel extends JPanel implements Observer {
 	private IGraphicsBuilder graphicsBuilder;
+	private Observable observable;
 
 	public GamePanel(IGraphicsBuilder graphicsBuilder) {
 		this.graphicsBuilder = graphicsBuilder;
@@ -22,6 +23,7 @@ public class GamePanel extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		this.observable = o;
 		repaint();
 	}
 

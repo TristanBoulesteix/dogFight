@@ -136,10 +136,10 @@ public class Mobile {
 
 	public void buildAllImages() throws IOException {
 		images = new Image[4];
-		images[Direction.UP.ordinal()] = ImageIO.read(new File("pictures/" + image + "_DOWN"));
-		images[Direction.DOWN.ordinal()] = ImageIO.read(new File("pictures/" + image + "_UP"));
-		images[Direction.LEFT.ordinal()] = ImageIO.read(new File("pictures/" + image + "_LEFT"));
-		images[Direction.RIGHT.ordinal()] = ImageIO.read(new File("pictures/" + image + "_RIGHT"));
+		images[Direction.UP.ordinal()] = ImageIO.read(new File("pictures/" + image + "_DOWN.png"));
+		images[Direction.DOWN.ordinal()] = ImageIO.read(new File("pictures/" + image + "_UP.png"));
+		images[Direction.LEFT.ordinal()] = ImageIO.read(new File("pictures/" + image + "_LEFT.png"));
+		images[Direction.RIGHT.ordinal()] = ImageIO.read(new File("pictures/" + image + "_RIGHT.png"));
 	}
 
 	public Image getImage() {

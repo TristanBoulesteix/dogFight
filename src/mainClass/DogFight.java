@@ -12,7 +12,6 @@ public class DogFight {
 		final DogfightView dogfightView = new DogfightView(dogfightController, dogfightModel, dogfightModel);
 		dogfightController.setViewSystem(dogfightView);
 		dogfightController.play();
-
 	}
 
 }

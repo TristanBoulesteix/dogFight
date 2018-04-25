@@ -12,7 +12,6 @@ public class DogfightView implements Runnable, IViewSystem {
 	private GraphicsBuilder graphicsBuilder;
 	private GameFrame gameFrame;
 
-	@SuppressWarnings("deprecation")
 	public DogfightView(IOrderPerformer orderPerformer, IDogfightModel dogfightModel, Observable observable) {
 		this.eventPerformer = new EventPerformer(orderPerformer);
 		this.graphicsBuilder = new GraphicsBuilder(dogfightModel);
