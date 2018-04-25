@@ -2,6 +2,10 @@ package jpu2016.dogfight.model;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 public class Mobile {
 	private Direction direction;
@@ -9,7 +13,7 @@ public class Mobile {
 	private Dimension dimension;
 	private int speed;
 	private String image;
-	private int height;
+	private Image[] images;
 	private IDogfightModel dogfightModel;
 
 	public Mobile(Direction direction, Position position, Dimension dimension, int speed, String image) {
@@ -18,6 +22,12 @@ public class Mobile {
 		this.dimension = dimension;
 		this.speed = speed;
 		this.image = image;
+
+		try {
+			this.buildAllImages();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public Direction getDirection() {
@@ -112,18 +122,28 @@ public class Mobile {
 
 	public void setDogfightModel(IDogfightModel dogfightModel) {
 		this.dogfightModel = dogfightModel;
+		this.getPosition().setMaxX(this.dogfightModel.getArea().getDimension().getWidth());
+		this.getPosition().setMaxY(this.dogfightModel.getArea().getDimension().getHeight());
 	}
 
 	public boolean hit() {
-		return true;
+		return false;
 	}
 
 	public boolean isWeapon() {
 		return true;
 	}
 
+	public void buildAllImages() throws IOException {
+		images = new Image[4];
+		images[Direction.UP.ordinal()] = ImageIO.read(new File("pictures/" + image + "_DOWN"));
+		images[Direction.DOWN.ordinal()] = ImageIO.read(new File("pictures/" + image + "_UP"));
+		images[Direction.LEFT.ordinal()] = ImageIO.read(new File("pictures/" + image + "_LEFT"));
+		images[Direction.RIGHT.ordinal()] = ImageIO.read(new File("pictures/" + image + "_RIGHT"));
+	}
+
 	public Image getImage() {
-		return null;
+		return images[getDirection().ordinal()];
 	}
 
 }

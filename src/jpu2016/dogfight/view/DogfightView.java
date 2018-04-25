@@ -6,30 +6,29 @@ import jpu2016.dogfight.controller.IOrderPerformer;
 import jpu2016.dogfight.gameframe.GameFrame;
 import jpu2016.dogfight.model.IDogfightModel;
 
-public class DogfightView extends Observable implements IViewSystem, Runnable {
-	
-	private EventPerformer 	myeventPerformer;
-	private GraphicsBuilder mygraphicsBuilder;
-	private GameFrame 		mygameFrame;
-	
-	public DogfightView(IOrderPerformer orderPerformer, IDogfightModel dogfightModel, Observable observable) {
-		this.myeventPerformer = new EventPerformer(orderPerformer);
-		this.mygraphicsBuilder = new GraphicsBuilder(dogfightModel);
-		this.mygameFrame = new GameFrame("SALUT", myeventPerformer, mygraphicsBuilder, observable);
-		
-	}
-	
-@Override
-private void run() {
-	
-}
+public class DogfightView implements Runnable, IViewSystem {
+	private EventPerformer eventPerformer;
+	private GraphicsBuilder graphicsBuilder;
+	private GameFrame gameFrame;
 
-public void closeAll() {
-	
-}
-public String displayMessage(String message) {
-	// TODO Auto-generated method stub
-	return null;
-}
+	@SuppressWarnings("deprecation")
+	public DogfightView(IOrderPerformer orderPerformer, IDogfightModel dogfightModel, Observable observable) {
+		this.eventPerformer = new EventPerformer(orderPerformer);
+		this.graphicsBuilder = new GraphicsBuilder(dogfightModel);
+		this.gameFrame = new GameFrame("dogfight - The game", eventPerformer, graphicsBuilder, observable);
+	}
+
+	@Override
+	public void run() {
+
+	}
+
+	public void closeAll() {
+
+	}
+
+	public String displayMessage(String message) {
+		return message;
+	}
 
 }
